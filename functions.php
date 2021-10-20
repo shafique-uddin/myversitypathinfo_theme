@@ -72,7 +72,7 @@ function wpdocs_my_search_formone( $form ) {
                         <label for="hscdivisionlevel" class="form-label">এইচএসসি বিভাগ</label>
                             <select name="hscgrp" class="form-select form-control" aria-label="Default select example" id="hscdivisionlevel">
                                 <option selected disabled>Select One</option>
-                                <option value="scienceBH">Science (Biology + Math)</option>
+                                <option value="scienceHB">Science (Higher Math + Biology)</option>
                                 <option value="scienceB">Science (Biology)</option>
                                 <option value="scienceM">Science (Math)</option>
                                 <option value="arts">Arts</option>
