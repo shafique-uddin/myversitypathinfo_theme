@@ -5,7 +5,7 @@ $text = '<div class="container-fluid">
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="fs-3 text-center mb-4">দুঃখিত! <br> আপনার কাঙ্ক্ষিত তথ্য খুজে পাওয়া যায়নি।<br> নিশ্চয়ই আপনার ভুল হয়েছে।</h1>
+                <h1 class="fs-3 text-center mb-4">দুঃখিত! (404) <br> আপনার কাঙ্ক্ষিত তথ্য খুজে পাওয়া যায়নি।<br> নিশ্চয়ই আপনার ভুল হয়েছে।</h1>
             </div>
         </div>
     </div>
