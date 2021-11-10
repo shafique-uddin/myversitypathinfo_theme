@@ -53,9 +53,7 @@ function wpdocs_my_search_formone( $form ) {
                             <label for="sscdivisionlevel" class="form-label">SSC Group</label>
                             <select name="sscgrp" class="form-select form-control" aria-label="Default select example" id="sscdivisionlevel">
                                 <option selected disabled>Select One</option>
-                                <option value="scienceHB">Science (Higher Math + Biology)</option>
-                                <option value="scienceB">Science (Biology)</option>
-                                <option value="scienceM">Science (Higher Math)</option>
+                                <option value="scienceHB">Science</option>
                                 <option value="arts">Arts</option>
                                 <option value="commerce">Commerce</option>
                             </select>
@@ -72,9 +70,7 @@ function wpdocs_my_search_formone( $form ) {
                         <label for="hscdivisionlevel" class="form-label">এইচএসসি বিভাগ</label>
                             <select name="hscgrp" class="form-select form-control" aria-label="Default select example" id="hscdivisionlevel">
                                 <option selected disabled>Select One</option>
-                                <option value="scienceHB">Science (Higher Math + Biology)</option>
-                                <option value="scienceB">Science (Biology)</option>
-                                <option value="scienceM">Science (Math)</option>
+                                <option value="scienceHB">Science</option>
                                 <option value="arts">Arts</option>
                                 <option value="commerce">Commerce</option>
                             </select>
