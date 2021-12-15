@@ -30,8 +30,6 @@ $query = new WP_Query( array(
 <?php 
     while ($query->have_posts()) : $query->the_post(); ?>
 <a class="btn btn-primary mb-2" href="<?php echo the_permalink(); ?>" role="button"><?php echo get_the_title(); ?></a> <br>
-        <!--
-        <a class="btn btn-primary mb-2" href="<?php echo $link; ?>" role="button"><?php echo $title; ?></a> <br> -->
 <?php endwhile; ?>
 
 
