@@ -15,13 +15,6 @@ if(!is_array($data)){
     // get_footer();
 }
 else {
-
-
-
-
-
-
-
     foreach ($data as $key => $value) {
         if('0' == $key){
             $ssc_gpa = floatval($value);
@@ -44,9 +37,8 @@ else {
     
     global $wpdb;
     $table_name = $wpdb->prefix . "admission_info_db";
-    
-    $result = $wpdb->get_results("SELECT * FROM $table_name WHERE (sscGPA <= $ssc_gpa AND hscGPA <= $hsc_gpa) AND (sscGROUP = '$sscgrp' AND hscGROUP = '$hscgrp')");
-        ?>
+    $result = $wpdb->get_results("SELECT * FROM $table_name WHERE (sscGPA <= $ssc_gpa AND hscGPA <= $hsc_gpa) AND (sscGROUP LIKE '%$sscgrp%' AND hscGROUP LIKE '%$hscgrp%')");
+       ?>
     
     
     
@@ -58,53 +50,56 @@ else {
                             <p>আপনার মোট জিপিএ = <?php echo $totalGPA; ?></p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>যোগ্যতা অনুযায়ী যে সকল বিশ্ববিদ্যালয়ের বিভিন্ন ইউনিটে আপনি পরীক্ষা দিতে পারবেন তা নিম্নরূপ -</p>
+
+                <?php 
+                    if(count($result)>0){ ?>
+                        <div class="row">
+                            <div class="col">
+                                <p>যোগ্যতা অনুযায়ী যে সকল বিশ্ববিদ্যালয়ের বিভিন্ন ইউনিটে আপনি পরীক্ষা দিতে পারবেন তা নিম্নরূপ -</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <table class="table table-success table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">বিশ্ববিদ্যালয়ের নাম</th>
-                                        <th scope="col">ইউনিটের নাম/ বিস্তারিত</th>
-                                        <th scope="col">বিস্তারিত তথ্যসমূহ</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-    
-    
-    
-    <?php 
-        foreach ($result as $row_value) {
+                        <div class="row">
+                            <div class="col">
+                                <table class="table table-success table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">বিশ্ববিদ্যালয়ের নাম</th>
+                                            <th scope="col">ইউনিট</th>
+                                            <th scope="col">বিস্তারিত তথ্যসমূহ</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+        <?php 
+            foreach ($result as $row_value) {
+            ?>
+                                        <tr>
+                                            <th scope="col"> <?php echo $row_value->universityName; ?> </th>
+                                            <td scope="col"><?php echo $row_value->unitName; ?> </td>
+                                            <td scope="col"><a href="<?php echo $row_value->link; ?>">ক্লিক করুন</a></td>
+                                        </tr>
+        <?php 
+        }
         ?>
-                                    <tr>
-                                        <th scope="col"> <?php echo $row_value->universityName; ?> </th>
-                                        <td scope="col"><?php echo $row_value->unitName; ?> </td>
-                                        <td scope="col">ক্লিক করুন</td>
-                                    </tr>
-    
-    <?php 
-    }
-    ?>
-    <?php //wp_reset_query();	 // Restore global post data stomped by the_post(). ?>
-                                </tbody>
-                            </table>
+        <?php //wp_reset_query();	 // Restore global post data stomped by the_post(). ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
+                <?php
+                    }
+                    else{ ?>
+                        <div class="row">
+                            <div class="col">
+                                <p>দুঃখিত! আপনার দেওয়া উক্ত জিপিএ অনুযায়ী কোনো ফলাফল খুঁজে পাওয়া যায় নি।</p>
+                            </div>
+                        </div>
+                <?php
+                    }
+                ?>
+
+                    
                 </div>
             </div>
         <!-- End Content area -->
-    
-    
-    
-        
-    
-    
-    
-    
-    
     
     <?php get_footer(); } ?>

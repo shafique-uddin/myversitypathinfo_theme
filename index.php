@@ -26,11 +26,15 @@ $query = new WP_Query( array(
 
 
 
+    <div class="row">
 
 <?php 
     while ($query->have_posts()) : $query->the_post(); ?>
-<a class="btn btn-primary mb-2" href="<?php echo the_permalink(); ?>" role="button"><?php echo get_the_title(); ?></a> <br>
+        <div class="col-2">
+            <a class="btn btn-primary mb-2" href="<?php echo the_permalink(); ?>" role="button"><?php echo get_the_title(); ?></a>
+        </div>
 <?php endwhile; ?>
+    </div>
 
 
 <?php get_footer(); ?>
