@@ -16,6 +16,13 @@ if ( ! function_exists( 'myversitypathinfo_function' ) ) :
 			)
 		);
 
+
+        $sidebar = array(
+            'name' => 'ads_sidebar',
+            'id' => 'front_ads'
+        );
+        register_sidebar( $sidebar );
+       
 	
 	}
 endif;
