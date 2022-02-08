@@ -16,17 +16,7 @@ if ( ! function_exists( 'myversitypathinfo_function' ) ) :
 			)
 		);
 
-<<<<<<< HEAD
-        wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/css/custom_theme.css',false,'1.1','all');
-=======
-
-        $sidebar = array(
-            'name' => 'ads_sidebar',
-            'id' => 'front_ads'
-        );
-        register_sidebar( $sidebar );
-       
->>>>>>> 19d55425a19687b27c9ba7ceeb517bd6e4fa1721
+        wp_enqueue_style( 'root_theme_custom_css', get_template_directory_uri() . '/css/custom_theme.css',false, time(),'all');
 	
 	}
 endif;
