@@ -16,6 +16,7 @@ if ( ! function_exists( 'myversitypathinfo_function' ) ) :
 			)
 		);
 
+        wp_enqueue_style( 'custom_css', get_template_directory_uri() . '/css/custom_theme.css',false,'1.1','all');
 	
 	}
 endif;
