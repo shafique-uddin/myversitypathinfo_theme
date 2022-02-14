@@ -233,5 +233,57 @@ function form_validation_sty($request){
     return $text;
     }
 }
+add_filter('taking_rq_from_src','form_validation_sty', 10, 1);
 
- add_filter('taking_rq_from_src','form_validation_sty', 10, 1);
+
+
+
+ // REGISTRATION FORM
+ function frontPage_member_registrationForm($request){
+    $form = '<form method="POST" class="register-form" id="register-form">
+        <div class="form-group">
+            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+            <input type="text" name="register_userName" id="name" placeholder="Your Name"/>
+        </div>
+        <div class="form-group">
+            <label for="email"><i class="zmdi zmdi-email"></i></label>
+            <input type="email" name="register_userEmail" id="email" placeholder="Your Email"/>
+        </div>
+        <div class="form-group">
+            <label for="phone"><i class="zmdi zmdi-phone"></i></label>
+            <input type="phone" name="register_userPhone" id="phone" placeholder="Your Phone Number"/>
+        </div>
+        <div class="form-group">
+            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+            <input type="password" name="register_userPass" id="pass" placeholder="Password"/>
+        </div>
+        <div class="form-group">
+            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+            <input type="password" name="register_userRe_pass" id="re_pass" placeholder="Repeat your password"/>
+        </div>
+        <div class="form-group form-button">
+            <input type="submit" name="userModeTestSignup" id="signup" class="form-submit" value="Registration"/>
+        </div>
+    </form>';
+ 
+    return $form;
+ }
+ add_filter('frontPage_member_registration', 'frontPage_member_registrationForm', 10, 1);
+
+
+
+ if(isset($_REQUEST['userModeTestSignup'])){
+
+ }
+
+
+
+
+ add_action( 'admin_notices', 'my_theme_dependencies' );
+
+ function my_theme_dependencies() {
+   if( ! function_exists('plugin_function') )
+     echo '<div class="error"><p>' . __( 'Warning: The theme needs Plugin X to function', 'my-theme' ) . '</p></div>';
+ }
+
+ 
