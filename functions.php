@@ -1,4 +1,11 @@
 <?php
+
+
+//require_once get_template_directory() . '/inc/class-tgm-plugin-activation';
+require_once get_template_directory() . '/inc/plugin_activator.php';
+
+
+
 if ( ! function_exists( 'myversitypathinfo_function' ) ) :
 	
 	function myversitypathinfo_function() {
@@ -279,7 +286,7 @@ add_filter('taking_rq_from_src','form_validation_sty', 10, 1);
 
 
 
- add_action( 'admin_notices', 'my_theme_dependencies' );
+ // add_action( 'admin_notices', 'my_theme_dependencies' );
 
  function my_theme_dependencies() {
    if( ! function_exists('plugin_function') )
