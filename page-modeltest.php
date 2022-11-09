@@ -5,6 +5,21 @@
 
 get_header(); ?>
 
+<div class="row">
+    <div class="col-12 modeltestinfo">
+        <section class="">
+            <p>
+                <?php 
+                apply_filters('empty_registration_field_callable_hndler', 'error message will be show.');
+                apply_filters('register_userPhone_field_callable_hndler', 'Registration page phone number error message will be show.');
+                apply_filters('register_password_field_callable_hndler', 'Member Password is not match.');
+                apply_filters('some_registration_field_is_empty_callable_hndler', 'Some filed is empty error message will be show.');
+                ?>
+            </p>
+        </section>
+    </div>
+</div>
+
 
 <div class="row">
     <div class="col-12 modeltestinfo">

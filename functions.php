@@ -280,8 +280,84 @@ add_filter('taking_rq_from_src','form_validation_sty', 10, 1);
 
 
  if(isset($_REQUEST['userModeTestSignup'])){
+    if(empty($_POST['register_userName']) && empty($_POST['register_userEmail']) && empty($_POST['register_userPhone']) && empty($_POST['register_userPass']) && empty($_POST['register_userRe_pass'])){
+        add_filter('empty_registration_field_callable_hndler', 'empty_registration_field_callable_func');
+    }
+    elseif((mb_strlen($_POST['register_userPhone'])<11) || (mb_strlen($_POST['register_userPhone'])>11)){
+        add_filter('register_userPhone_field_callable_hndler', 'register_userPhone_field_callable_func');
+    }
+    elseif(sanitize_text_field($_POST['register_userPass']) != sanitize_text_field($_POST['register_userRe_pass'])){
+        add_filter('register_password_field_callable_hndler', 'register_password_field_callable_func');
+    }
+    elseif(empty($_POST['register_userName']) || empty($_POST['register_userEmail']) || empty($_POST['register_userPhone']) || empty($_POST['register_userPass']) || empty($_POST['register_userRe_pass'])){
+        add_filter('some_registration_field_is_empty_callable_hndler', 'some_registration_field_is_empty_callable_func');
+    }
+    else{
+        // echo 'form singup is working';exit;
+        $registerUserName = sanitize_text_field($_POST['register_userName']);
+        $registerUserEmail = sanitize_text_field($_POST['register_userEmail']);
+        $registerUserPhone = sanitize_text_field($_POST['register_userPhone']);
+        $registerUserPass = sanitize_text_field($_POST['register_userPass']);
+        $registerUserRPass = sanitize_text_field($_POST['register_userRe_pass']);
 
+        /**
+         *
+         * CREATE DATABASE TABLE FOR REGISTER USER
+         * INSERT DATA TO DATABASE
+         */
+
+        echo $registerUserPass.' '.$registerUserRPass; exit;
+
+       
+        include_once('includes/db/admission_info_db_insert.php');
+        add_action('admin_notices', 'admission_info_admin_data_insert_success_notice' );
+    } 
  }
+
+ /**
+ * Registration Pages Notice
+ */
+ ################################### EMPTY FIELD NOTICE ###################################
+function empty_registration_field_callable_func(){ ?>
+    <div class="registration notice notice-error is-dismissible">
+        <p>
+            <?php _e("All Field is Empty. Please Check Again."); ?>
+        </p>
+    </div>
+<?php 
+}
+
+function register_userPhone_field_callable_func(){ ?>
+    <div class="registration notice notice-error is-dismissible">
+        <p>
+            <?php _e("Please check your phone number. Give your solid/real phone number"); ?>
+        </p>
+    </div>
+<?php 
+}
+
+function register_password_field_callable_func(){ ?>
+    <div class="registration notice notice-error is-dismissible">
+        <p>
+            <?php _e("Please check your Password. Comfirmation password is not matching."); ?>
+        </p>
+    </div>
+<?php 
+}
+
+function some_registration_field_is_empty_callable_func(){ ?>
+    <div class="registration notice notice-error is-dismissible">
+        <p>
+            <?php _e("Please check all field. Some field is empty!"); ?>
+        </p>
+    </div>
+<?php 
+}
+
+
+
+
+
 
 
 
