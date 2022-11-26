@@ -293,26 +293,56 @@ add_filter('taking_rq_from_src','form_validation_sty', 10, 1);
         add_filter('some_registration_field_is_empty_callable_hndler', 'some_registration_field_is_empty_callable_func');
     }
     else{
-        // echo 'form singup is working';exit;
         $registerUserName = sanitize_text_field($_POST['register_userName']);
         $registerUserEmail = sanitize_text_field($_POST['register_userEmail']);
         $registerUserPhone = sanitize_text_field($_POST['register_userPhone']);
         $registerUserPass = sanitize_text_field($_POST['register_userPass']);
         $registerUserRPass = sanitize_text_field($_POST['register_userRe_pass']);
 
-        /**
-         *
-         * CREATE DATABASE TABLE FOR REGISTER USER
-         * INSERT DATA TO DATABASE
-         */
+        $wpdb;
+        $registration_mbr_tbl_name = $wpdb->prefix.'Ruinfo_db';
+        $query = $wpdb->insert(
+            $registration_mbr_tbl_name,
+            array(
+                'userName' => $registerUserName,
+                'userEmail' => $registerUserEmail,
+                'userPhone' => $registerUserPhone,
+                'userPass' => wp_hash_password($registerUserRPass)
+            )
+        );
+        if($query){
+            echo 'your registration is complete. Please login';
+        }
+        else{
+            echo 'something is wrong';
+        }
 
-        echo $registerUserPass.' '.$registerUserRPass; exit;
-
-       
-        include_once('includes/db/admission_info_db_insert.php');
-        add_action('admin_notices', 'admission_info_admin_data_insert_success_notice' );
+        
     } 
  }
+
+/**
+ * LOGIN VALIDATION
+ */
+// if(isset($_REQUEST['wp-submit'])){
+//     $userEmail = sanitize_text_field($_POST['log']);
+//     $userPass = sanitize_text_field(trim($_POST['pwd']));
+
+    
+//     $user = get_user_by('user_email', "$userEmail");
+// if($user)
+// {
+//    echo $user->ID;
+// }
+
+//     echo '<pre>';
+//     // print_r(wp_authenticate(wp_authenticate_user($userEmail,$userPass)));
+//     // print_r(wp_authenticate($userEmail, wp_check_password($userPass)));
+//     var_dump(get_user_by('user_email', $userEmail));
+//     echo '</pre>';
+//     echo $userEmail; exit;
+// }
+
 
  /**
  * Registration Pages Notice
