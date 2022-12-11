@@ -324,24 +324,41 @@ add_filter('taking_rq_from_src','form_validation_sty', 10, 1);
 /**
  * LOGIN VALIDATION
  */
-// if(isset($_REQUEST['wp-submit'])){
-//     $userEmail = sanitize_text_field($_POST['log']);
-//     $userPass = sanitize_text_field(trim($_POST['pwd']));
-
+if(isset($_REQUEST['signin'])){
+    $userEmail = sanitize_text_field($_POST['user_email']);
+    $userPass = sanitize_text_field($_POST['user_pass']);
     
-//     $user = get_user_by('user_email', "$userEmail");
-// if($user)
-// {
-//    echo $user->ID;
-// }
+    $registration_mbr_tbl_name = $wpdb->prefix.'Ruinfo_db';
 
-//     echo '<pre>';
-//     // print_r(wp_authenticate(wp_authenticate_user($userEmail,$userPass)));
-//     // print_r(wp_authenticate($userEmail, wp_check_password($userPass)));
-//     var_dump(get_user_by('user_email', $userEmail));
-//     echo '</pre>';
-//     echo $userEmail; exit;
-// }
+    $checkpass = wp_hash_password($userPass);
+    
+    global $wpdb;
+
+// $mylink = $wpdb->get_row( "SELECT * FROM $registration_mbr_tbl_name" );
+$mylink = $wpdb->get_results( "SELECT * FROM $registration_mbr_tbl_name WHERE userEmail = '$userEmail' " );
+
+$pass = password_verify($checkpass, $mylink[0]->userPass);
+
+
+
+$hash = $mylink[0]->userPass;
+
+if (password_verify("$userPass", $hash)) {
+    echo 'Password is valid!';
+} else {
+    echo 'Invalid password.';
+}
+
+    exit;
+
+    echo '<pre>';
+    // print_r(wp_authenticate(wp_authenticate_user($userEmail,$userPass)));
+    // print_r(wp_authenticate($userEmail, wp_check_password($userPass)));
+    var_dump($checkpass);
+    var_dump($mylink[0]->userPass);
+    echo '</pre>'; 
+    exit;
+}
 
 
  /**

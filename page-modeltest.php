@@ -53,7 +53,7 @@ get_header(); ?>
                     <div class="container">
                         <div class="signin-content">
                             <div class="signin-form">
-                                <!-- <form method="POST" class="register-form" id="login-form">
+                                <form method="POST" class="register-form" id="login-form">
                                     <div class="form-group">
                                         <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                         <input type="email" name="user_email" id="user_email" placeholder="User Email"/>
@@ -65,8 +65,8 @@ get_header(); ?>
                                     <div class="form-group form-button">
                                         <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                                     </div>
-                                </form> -->
-                                <?php wp_login_form(); ?>
+                                </form>
+                                <?php  // wp_login_form(); ?>
                             </div>
                         </div>
                     </div>
