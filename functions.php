@@ -327,24 +327,68 @@ add_filter('taking_rq_from_src','form_validation_sty', 10, 1);
 if(isset($_REQUEST['signin'])){
     $userEmail = sanitize_text_field($_POST['user_email']);
     $userPass = sanitize_text_field($_POST['user_pass']);
+
+    // CHECK EMPTY SUBMISSION
     
     $registration_mbr_tbl_name = $wpdb->prefix.'Ruinfo_db';
-
-    $checkpass = wp_hash_password($userPass);
-    
     global $wpdb;
-
-// $mylink = $wpdb->get_row( "SELECT * FROM $registration_mbr_tbl_name" );
-$mylink = $wpdb->get_results( "SELECT * FROM $registration_mbr_tbl_name WHERE userEmail = '$userEmail' " );
-
-$pass = password_verify($checkpass, $mylink[0]->userPass);
+    // $query = $wpdb->get_row( "SELECT * FROM $registration_mbr_tbl_name" );
+    $query = $wpdb->get_results("SELECT * FROM $registration_mbr_tbl_name WHERE userEmail = '$userEmail' ");
 
 
+// if (password_verify("$userPass", $hash)) {
+    if(count($query)>0){
+        $currentUserPass = $query[0]->userPass;
+        $currentUserId = $query[0]->id;
+    }
+    
+if (wp_check_password( $userPass, $currentUserPass)) {
+    // MAKE A SESSION UNIQUE ID FOR LOGIN USER
+    session_start();
+    $_SESSION['usid'] = time();
+    $_SESSION['usuid'] = $currentUserId;
+    // STORE THE SESSION DATA INTO DB
+    // REDIRECT USER TO FRONT PAGE DHASHBOARD
+    // MAKE DASHBOARD FOR USER
 
-$hash = $mylink[0]->userPass;
 
-if (password_verify("$userPass", $hash)) {
-    echo 'Password is valid!';
+
+
+    // echo 'Password is valid! and user id is: '.$currentUserId;
+    
+    $credentials['user_login'] =  $_POST['user_email'] ;
+    $credentials['user_password'] = $_POST['user_pass'];
+    wp_signon($credentials);
+    // wp_set_auth_cookie($currentUserId);
+        wp_clear_auth_cookie();
+        wp_set_current_user ( $currentUserId ); // Set the current user detail
+        wp_set_auth_cookie  ( $currentUserId ); // Set auth details in cookie
+		// $message = "Logged in successfully";
+        wp_get_session_token();
+        
+        add_action( 'set_logged_in_cookie', 'my_cookie_action', 10, 5 );
+        function my_cookie_action( $logged_in_cookie, $expire, $expiration, $user_id, $scheme ) {
+            // complete some action when the cookie is set.
+            return;
+        }
+        var_dump(wp_validate_auth_cookie());
+        var_dump(wp_get_session_token());
+        exit;
+
+$url = site_url('/member');
+// var_dump($url);exit;
+        wp_redirect( $url );
+exit;
+// include_once('member.php');
+
+
+// echo "<pre>";
+// var_dump(wp_signon());
+// echo "</pre>";
+
+
+
+
 } else {
     echo 'Invalid password.';
 }
@@ -355,7 +399,7 @@ if (password_verify("$userPass", $hash)) {
     // print_r(wp_authenticate(wp_authenticate_user($userEmail,$userPass)));
     // print_r(wp_authenticate($userEmail, wp_check_password($userPass)));
     var_dump($checkpass);
-    var_dump($mylink[0]->userPass);
+    var_dump($query[0]->userPass);
     echo '</pre>'; 
     exit;
 }
