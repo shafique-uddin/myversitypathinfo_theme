@@ -343,6 +343,7 @@ if(isset($_REQUEST['signin'])){
     }
     
 if (wp_check_password( $userPass, $currentUserPass)) {
+    // ==============================================================================================================
     // MAKE A SESSION UNIQUE ID FOR LOGIN USER
     session_start();
     $_SESSION['usid'] = time();
@@ -350,8 +351,7 @@ if (wp_check_password( $userPass, $currentUserPass)) {
     // STORE THE SESSION DATA INTO DB
     // REDIRECT USER TO FRONT PAGE DHASHBOARD
     // MAKE DASHBOARD FOR USER
-
-
+    // ===================================================================================================
 
 
     // echo 'Password is valid! and user id is: '.$currentUserId;
@@ -375,10 +375,10 @@ if (wp_check_password( $userPass, $currentUserPass)) {
         var_dump(wp_get_session_token());
         exit;
 
-$url = site_url('/member');
-// var_dump($url);exit;
+    $url = site_url('/member');
+    // var_dump($url);exit;
         wp_redirect( $url );
-exit;
+    exit;
 // include_once('member.php');
 
 
