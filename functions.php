@@ -1,9 +1,7 @@
 <?php
 
-
 //require_once get_template_directory() . '/inc/class-tgm-plugin-activation';
 require_once get_template_directory() . '/inc/plugin_activator.php';
-
 
 
 if ( ! function_exists( 'myversitypathinfo_function' ) ) :
@@ -41,9 +39,6 @@ function add_class_to_all_menu_anchors( $atts ) {
     return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'add_class_to_all_menu_anchors', 10 );
-
-
-
 
 
 
@@ -94,8 +89,6 @@ function wpdocs_my_search_formone( $form ) {
     return $form;
 }
 add_filter( 'get_search_form', 'wpdocs_my_search_formone', 10, 1 );
-
-
 
 
 
@@ -159,7 +152,6 @@ add_filter( 'get_search_form', 'wpdocs_my_search_formone', 10, 1 );
 
 function form_validation_sty($request){
 
-
     if (!empty($_GET['sscgpa']) && !empty($_GET['sscgrp']) && !empty($_GET['hscgpa']) && !empty($_GET['hscgrp']) && !empty($_GET['submit'])) { 
         
         $sscgpa_for_total_val = floatval($_GET['sscgpa']);
@@ -180,8 +172,6 @@ function form_validation_sty($request){
         $request[] = $total_GPA;
 
         return $request;
-
-
 
         /* Query
 
@@ -341,6 +331,10 @@ if(isset($_REQUEST['signin'])){
         $currentUserPass = $query[0]->userPass;
         $currentUserId = $query[0]->id;
     }
+    else {
+        echo 'Email/Invalid password.';
+        exit;
+    }
     
 if (wp_check_password( $userPass, $currentUserPass)) {
     // ==============================================================================================================
@@ -348,37 +342,28 @@ if (wp_check_password( $userPass, $currentUserPass)) {
     session_start();
     $_SESSION['usid'] = time();
     $_SESSION['usuid'] = $currentUserId;
+
+
     // STORE THE SESSION DATA INTO DB
+    global $wpdb;
+    $Ruinfo_user_meta_tbl = $wpdb->prefix.'Ruinfo_user_meta';
+    $wpdb->insert(
+        $Ruinfo_user_meta_tbl,
+        array(    
+            'userSessionId' => $_SESSION['usuid'],
+            'userSessionValue' => $_SESSION['usid']
+        )
+    );
+
     // REDIRECT USER TO FRONT PAGE DHASHBOARD
+    $url = site_url('/member');
+    wp_redirect( $url );
     // MAKE DASHBOARD FOR USER
     // ===================================================================================================
 
 
-    // echo 'Password is valid! and user id is: '.$currentUserId;
-    
-    $credentials['user_login'] =  $_POST['user_email'] ;
-    $credentials['user_password'] = $_POST['user_pass'];
-    wp_signon($credentials);
-    // wp_set_auth_cookie($currentUserId);
-        wp_clear_auth_cookie();
-        wp_set_current_user ( $currentUserId ); // Set the current user detail
-        wp_set_auth_cookie  ( $currentUserId ); // Set auth details in cookie
-		// $message = "Logged in successfully";
-        wp_get_session_token();
-        
-        add_action( 'set_logged_in_cookie', 'my_cookie_action', 10, 5 );
-        function my_cookie_action( $logged_in_cookie, $expire, $expiration, $user_id, $scheme ) {
-            // complete some action when the cookie is set.
-            return;
-        }
-        var_dump(wp_validate_auth_cookie());
-        var_dump(wp_get_session_token());
-        exit;
 
-    $url = site_url('/member');
-    // var_dump($url);exit;
-        wp_redirect( $url );
-    exit;
+
 // include_once('member.php');
 
 

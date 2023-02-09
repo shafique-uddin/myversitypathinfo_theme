@@ -3,7 +3,11 @@
  * Template Name: Model Test
  */
 
-get_header(); ?>
+ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){
+
+ }
+else{
+    get_header(); ?>
 
 <div class="row">
     <div class="col-12 modeltestinfo">
@@ -104,4 +108,7 @@ get_header(); ?>
 </div>
 
 
-<?php get_footer(); ?>
+<?php 
+    get_footer(); 
+}
+?>
