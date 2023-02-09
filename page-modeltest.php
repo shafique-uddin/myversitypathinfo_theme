@@ -1,6 +1,6 @@
 <?php 
 /**
- * Template Name: Model Test
+ * Template Name: Registration (Model Test)
  */
 
  if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){

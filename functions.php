@@ -356,7 +356,7 @@ if (wp_check_password( $userPass, $currentUserPass)) {
     );
 
     // REDIRECT USER TO FRONT PAGE DHASHBOARD
-    $url = site_url('/member');
+    $url = site_url('/dashboard');
     wp_redirect( $url );
     // MAKE DASHBOARD FOR USER
     // ===================================================================================================

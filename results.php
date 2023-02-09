@@ -1,6 +1,6 @@
 <?php 
 /**
-* Template Name: User Settings Page
+* Template Name: User Results Page
 */
 
 session_start();
@@ -15,10 +15,10 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
         <div class="row">
             <?php include_once('member-menu.php'); ?>
             <div class="col-8">
-                <h2>This is settings page</h2>
-                <button><a name="log-out" href="<?php echo site_url('model-test'); ?>">Log Out</a></button>
+                <h2>This is Result page</h2>
             </div>
         </div>
+
     </div>
     <!-- End of Page Wrapper -->
 <?php include_once('member-footer.php'); ?>
