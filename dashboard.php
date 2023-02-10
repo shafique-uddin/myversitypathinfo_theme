@@ -15,6 +15,7 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
             <?php include_once('member-menu.php'); ?>
             <div class="col-8">
                 <h2>This is dashboard page.</h2>
+                <p>Tumi jodi settings page theke tomar sokol totho diye thako tobe ai dashboar page e aslei tomar joggota onujayi sokol bissobiddaloyer circle, abedoner date abong abodoner link er notification akhane paye jabe auto.</p>
             </div>
         </div>
 

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 //require_once get_template_directory() . '/inc/class-tgm-plugin-activation';
 require_once get_template_directory() . '/inc/plugin_activator.php';
@@ -89,64 +91,6 @@ function wpdocs_my_search_formone( $form ) {
     return $form;
 }
 add_filter( 'get_search_form', 'wpdocs_my_search_formone', 10, 1 );
-
-
-
-
-// function cptui_register_my_cpts_varsityunitewithgpa() {
-
-//     /**
-//      * Post Type: Varsity unites by gpa.
-//      */
-
-//     $labels = [
-//         "name" => __( "Varsity unites by gpa", "custom-post-type-ui" ),
-//         "singular_name" => __( "Varsity unite by gpa", "custom-post-type-ui" ),
-//         "menu_name" => __( "Versity, Unite & GPA", "custom-post-type-ui" ),
-//         "all_items" => __( "All University Info", "custom-post-type-ui" ),
-//         "add_new" => __( "Add New Varsity Info", "custom-post-type-ui" ),
-//         "add_new_item" => __( "Add new post", "custom-post-type-ui" ),
-//         "edit_item" => __( "Edit this post", "custom-post-type-ui" ),
-//         "new_item" => __( "Varsity info", "custom-post-type-ui" ),
-//         "view_item" => __( "View Post", "custom-post-type-ui" ),
-//         "view_items" => __( "View this Post", "custom-post-type-ui" ),
-//         "items_list" => __( "Varsity Gpa by Unite List", "custom-post-type-ui" ),
-//     ];
-
-//     $args = [
-//         "label" => __( "Varsity unites by gpa", "custom-post-type-ui" ),
-//         "labels" => $labels,
-//         "description" => "All university unite according to GPA",
-//         "public" => true,
-//         "publicly_queryable" => true,
-//         "show_ui" => true,
-//         "show_in_rest" => true,
-//         "rest_base" => "",
-//         "rest_controller_class" => "WP_REST_Posts_Controller",
-//         "has_archive" => false,
-//         "show_in_menu" => true,
-//         "show_in_nav_menus" => true,
-//         "delete_with_user" => false,
-//         "exclude_from_search" => false,
-//         "capability_type" => "post",
-//         "map_meta_cap" => true,
-//         "hierarchical" => false,
-//         "rewrite" => [ "slug" => "varsityunitewithgpa", "with_front" => true ],
-//         "query_var" => true,
-//         "supports" => [ "title", "custom-fields", "post-formats" ],
-//     ];
-
-//     register_post_type( "varsityunitewithgpa", $args );
-// }
-
-// add_action( 'init', 'cptui_register_my_cpts_varsityunitewithgpa' );
-
-
-
-// add_filter('acf/settings/show_admin', '__return_false');
-
-
-
 
 
 
@@ -322,11 +266,9 @@ if(isset($_REQUEST['signin'])){
     
     $registration_mbr_tbl_name = $wpdb->prefix.'Ruinfo_db';
     global $wpdb;
-    // $query = $wpdb->get_row( "SELECT * FROM $registration_mbr_tbl_name" );
     $query = $wpdb->get_results("SELECT * FROM $registration_mbr_tbl_name WHERE userEmail = '$userEmail' ");
 
 
-// if (password_verify("$userPass", $hash)) {
     if(count($query)>0){
         $currentUserPass = $query[0]->userPass;
         $currentUserId = $query[0]->id;
@@ -339,9 +281,20 @@ if(isset($_REQUEST['signin'])){
 if (wp_check_password( $userPass, $currentUserPass)) {
     // ==============================================================================================================
     // MAKE A SESSION UNIQUE ID FOR LOGIN USER
+    if(session_status() == PHP_SESSION_ACTIVE){
+        // echo 'already session start';
+        session_unset();
+        session_destroy();
+        session_write_close();
+    }
+    exit;
     session_start();
     $_SESSION['usid'] = time();
     $_SESSION['usuid'] = $currentUserId;
+    session_write_close();
+
+    // START WORK WITH COOKIE AND LOG OUT DATA REMOVAL WORK IN BELOW......
+    setcookie('vspo',time(),time()+30*24,'/');
 
 
     // STORE THE SESSION DATA INTO DB
@@ -360,19 +313,6 @@ if (wp_check_password( $userPass, $currentUserPass)) {
     wp_redirect( $url );
     // MAKE DASHBOARD FOR USER
     // ===================================================================================================
-
-
-
-
-// include_once('member.php');
-
-
-// echo "<pre>";
-// var_dump(wp_signon());
-// echo "</pre>";
-
-
-
 
 } else {
     echo 'Invalid password.';
@@ -393,9 +333,21 @@ if (wp_check_password( $userPass, $currentUserPass)) {
 /**
  * User Log Out Section
  */
-if(isset($_REQUEST['usr-log-out'])){
+if(isset($_REQUEST['usr-log-out']) && !empty($_SESSION['usuid'])){
+    
+    $userID = $_SESSION['usuid'];
 
-    session_start();
+    global $wpdb;
+    // DELETE USER SESSION DATA FROM META TABLE
+    $Ruinfo_details_tbl = $wpdb->prefix.'ruinfo_user_meta';
+    $Ruinfo_details_tbl_sample_data_clean_query = "DELETE FROM $Ruinfo_details_tbl WHERE userSessionId = $userID";
+    $result = $wpdb->query($Ruinfo_details_tbl_sample_data_clean_query);
+
+    // echo "<pre>";
+    // var_dump($result);
+    // echo "</pre>"; wp_die();
+
+    
     session_unset();
     session_destroy();
     session_write_close();
