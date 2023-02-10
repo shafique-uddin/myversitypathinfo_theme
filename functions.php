@@ -390,6 +390,26 @@ if (wp_check_password( $userPass, $currentUserPass)) {
 }
 
 
+/**
+ * User Log Out Section
+ */
+if(isset($_REQUEST['usr-log-out'])){
+
+    session_start();
+    session_unset();
+    session_destroy();
+    session_write_close();
+    // DESTROY ALL SESSTION DATA FOR THIS USER FROM DB
+    // USER SESSION WRITE CLOSER FUNCTION WHEN SESSIN WRTIE
+
+    $redirect_url = site_url();
+    wp_safe_redirect( $redirect_url );
+    exit;
+}
+
+
+
+
  /**
  * Registration Pages Notice
  */

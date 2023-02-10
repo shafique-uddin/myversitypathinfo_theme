@@ -7,7 +7,8 @@ session_start();
 if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
 
 <!--MEMBER SECTION START-->
-<?php include('member-header.php'); ?>
+<?php // include('member-header.php'); ?>
+<?php get_header(); ?>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -21,7 +22,8 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
 
     </div>
     <!-- End of Page Wrapper -->
-<?php include_once('member-footer.php'); ?>
+<?php // include_once('member-footer.php'); ?>
+<?php get_footer(); ?>
 <!--MEMBER SECTION END-->
 <?php
 }
