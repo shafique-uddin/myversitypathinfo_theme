@@ -287,14 +287,16 @@ if (wp_check_password( $userPass, $currentUserPass)) {
         session_destroy();
         session_write_close();
     }
-    exit;
+
     session_start();
     $_SESSION['usid'] = time();
     $_SESSION['usuid'] = $currentUserId;
     session_write_close();
+    $cookie_value = rand(0,20).md5($_SESSION['usid']).rand(0,9);
+    $cookie_exp = time()+30*24;
 
     // START WORK WITH COOKIE AND LOG OUT DATA REMOVAL WORK IN BELOW......
-    setcookie('vspo',time(),time()+30*24,'/');
+    setcookie('vspo',$cookie_value,$cookie_exp,'/');
 
 
     // STORE THE SESSION DATA INTO DB
@@ -304,7 +306,9 @@ if (wp_check_password( $userPass, $currentUserPass)) {
         $Ruinfo_user_meta_tbl,
         array(    
             'userSessionId' => $_SESSION['usuid'],
-            'userSessionValue' => $_SESSION['usid']
+            'userSessionValue' => $_SESSION['usid'],
+            'userSessionKey' => $cookie_value,
+            'userSessionExpiry' => $cookie_exp
         )
     );
 
@@ -318,7 +322,7 @@ if (wp_check_password( $userPass, $currentUserPass)) {
     echo 'Invalid password.';
 }
 
-    exit;
+
 
     echo '<pre>';
     // print_r(wp_authenticate(wp_authenticate_user($userEmail,$userPass)));
@@ -403,15 +407,7 @@ function some_registration_field_is_empty_callable_func(){ ?>
 }
 
 
-
-
-
-
-
-
-
  // add_action( 'admin_notices', 'my_theme_dependencies' );
-
  function my_theme_dependencies() {
    if( ! function_exists('plugin_function') )
      echo '<div class="error"><p>' . __( 'Warning: The theme needs Plugin X to function', 'my-theme' ) . '</p></div>';

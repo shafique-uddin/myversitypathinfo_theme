@@ -3,6 +3,12 @@
 * Template Name: Member Dashboard
 */
 session_start();
+if($_COOKIE['vspo']){
+    echo $_COOKIE['vspo'];
+    // CHECK THE COOKIE IS VALID OR NOT
+    // IF COOKIE IS VALID CHECK COOKIE EXPIRED TIME AND UPDATE IT WITH NEW EXPIRED TIME
+    // IF IT IS INVALID THEN REDIRECT USER TO 404 PAGE
+} exit;
 if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
 <!--MEMBER SECTION START-->
 <?php // include('member-header.php'); ?>

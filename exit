@@ -1,0 +1,162 @@
+[33mcommit 2f3d67e3dd44240e9b0c21bbaff7f527a6a453f2[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Fri Feb 10 22:44:32 2023 +0600
+
+    COOKIE AND LOG OUT DATA REMOVAL WORK FROM DB
+
+[33mcommit 2345a1d4e7e39e850b0c9dd5125f31899c9620cf[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Fri Feb 10 20:02:48 2023 +0600
+
+    USER FILE UPADTED
+
+[33mcommit b6c25c3b514a4320002b07c5b2e1475b95f2b3df[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Thu Feb 9 23:47:45 2023 +0600
+
+    user panel pages is ready
+
+[33mcommit 51a6d807f2dfb2bcc7a5ff70ed43e739a6b6924b[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Thu Feb 9 18:01:32 2023 +0600
+
+    Custom user page updated
+
+[33mcommit 12c082cc531250216da2f7b680ceacd3ef777a4b[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Wed Feb 8 23:29:41 2023 +0600
+
+    func page updated
+
+[33mcommit 7c70aea1e4b6437e191fa229eb2affa67b5533a7[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Wed Feb 8 23:19:54 2023 +0600
+
+    theme function page updated and member page reg up
+
+[33mcommit ce5b02e81b12285aab33e485b3921afae7b6439f[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Sun Dec 11 18:43:26 2022 +0600
+
+    function page update
+
+[33mcommit 207027750061c354595d86feb97acba6787950d7[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Sat Nov 26 18:22:31 2022 +0600
+
+    index page updated
+
+[33mcommit 0ec078d6ab3f302258af3261d2322362d90bee04[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Wed Nov 9 17:09:14 2022 +0600
+
+    page-modeltest is (registration section) updated
+
+[33mcommit 14ac3b31a73eb3e1d1a1f25e5dc0a9409294b2c4[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Wed Nov 9 17:07:50 2022 +0600
+
+    Theme functions page-user registration update.
+
+[33mcommit 94f99d7f862f083f2c5faa8f6958916f6d1c91d6[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Sun Mar 6 12:42:42 2022 +0600
+
+    Plugin activation code added in functions and inc
+
+[33mcommit 6bc5db6ed7b314735fc3edecbd5315eac0d4d581[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Mon Feb 14 18:21:13 2022 +0600
+
+    member registration page update
+
+[33mcommit e70d0027b405ede8f7efbc1fef8f225f92c3ec83[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Wed Feb 9 17:31:00 2022 +0600
+
+    modeltestpage, css updated
+
+[33mcommit 9cc6f19b970be2b0b9e6ba8cb753b36d24d6f998[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Tue Feb 8 18:36:19 2022 +0600
+
+    single (post) page update
+
+[33mcommit 30e752b94572f5697aba6540242c42c658013c52[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Tue Feb 8 18:32:19 2022 +0600
+
+    css version update
+
+[33mcommit e03e03a0fdc42c0f3cfc40fb074292c1268ed97e[m
+Merge: 4e65a9f 19d5542
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Tue Feb 8 18:24:19 2022 +0600
+
+    Merge branch 'main' of https://github.com/shafique-uddin/myversitypathinfo_theme
+
+[33mcommit 4e65a9fa5705d59c46ef7b2e1dde24863740eed3[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Tue Feb 8 18:23:44 2022 +0600
+
+    css, blogpost page updated
+
+[33mcommit 19d55425a19687b27c9ba7ceeb517bd6e4fa1721[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Sat Dec 18 23:13:59 2021 +0600
+
+    register sidebar has updated
+
+[33mcommit 6ab7a056a7e899927b7216001b02b6adcf4f9a10[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Thu Dec 16 16:16:44 2021 +0600
+
+    blog page, search page updated.
+
+[33mcommit 3de0b519e388be5211e32cb84ff07844f98dd151[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Wed Dec 15 18:33:08 2021 +0600
+
+    blog post updated
+
+[33mcommit 58bff64dfcb79ed96ed37a9e4480397f3c4cb4c5[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Wed Dec 15 18:17:20 2021 +0600
+
+    index page has updated
+
+[33mcommit ff997cdfe43eab5a477348216c02ca3bbee4ad59[m
+Author: Muhammad Shafique <shofique32@gmail.com>
+Date:   Wed Nov 10 18:44:34 2021 +0600
+
+    Form Update - Some option have been deleted
+
+[33mcommit 59a24bdcca93586468c77eb590f7c93a0eea9ff8[m
+Author: shafique-uddin <shofique32@gmail.com>
+Date:   Sat Oct 23 23:18:41 2021 +0600
+
+    There have some problem in theme.
+
+[33mcommit e87c083fa02f44780903327c2ced99dc59d63b59[m
+Author: Muhammad Shafique <shofique32@gmail.com>
+Date:   Wed Oct 20 18:23:11 2021 +0600
+
+    The code of single page has been updated.
+
+[33mcommit a58fd907089194707ebeec6d3e8ade75889abe50[m
+Author: Muhammad Shafique <shofique32@gmail.com>
+Date:   Wed Oct 20 16:19:29 2021 +0600
+
+    Front page form  option updated
+
+[33mcommit 5feb96094db55052f9125087ef767b3c0b48413e[m
+Author: Muhammad Shafique <shofique32@gmail.com>
+Date:   Wed Oct 20 15:52:24 2021 +0600
+
+    Home page form option tag value updated
+
+[33mcommit 595b5f1e02755b19678e9832d8c955ba31e29c94[m
+Author: sakilhasanbd <mdsakilhasanbd@gmail.com>
+Date:   Tue Oct 19 13:02:32 2021 +0600
+
+    Initial commit
