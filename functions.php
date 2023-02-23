@@ -351,7 +351,8 @@ if(isset($_REQUEST['usr-log-out']) && !empty($_SESSION['usuid'])){
     // var_dump($result);
     // echo "</pre>"; wp_die();
 
-    
+    unset($_COOKIE['vspo']); 
+    setcookie('vspo', null, -1, '/'); 
     session_unset();
     session_destroy();
     session_write_close();

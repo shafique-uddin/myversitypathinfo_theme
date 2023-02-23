@@ -27,7 +27,12 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
 <!--MEMBER SECTION END-->
 <?php
 }
-else {
+elseif(!empty($_COOKIE['vspo'])){
+    include_once('member-cookie-session-update.php');
+    include_once('member-dashboard.php');
+} 
+else{
+    // REDIRECT USER TO FRONT PAGE DHASHBOARD
     $url = site_url('/404');
     wp_redirect( $url );
 }
