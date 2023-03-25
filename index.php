@@ -8,11 +8,6 @@ else{
 ?>
 
 
-
-
-
-<?php // get_header(); ?>
-
 <?php
 $query = new WP_Query( array( 
     'post_type' => 'post',

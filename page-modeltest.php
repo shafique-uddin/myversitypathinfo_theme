@@ -3,10 +3,6 @@
  * Template Name: Registration (Model Test)
  */
 
- if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){
-    echo 'Registared memeber logined from page-modeltest';
- }
-else{
     get_header(); ?>
 
 <div class="row">
@@ -110,5 +106,4 @@ else{
 
 <?php 
     get_footer(); 
-}
 ?>

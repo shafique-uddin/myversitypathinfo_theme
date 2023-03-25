@@ -4,7 +4,7 @@
         <thead>
             <tr>
             <th scope="col">Subject Name</th>
-            <th scope="col">Result</th>
+            <th scope="col">Your Marks</th>
             <th scope="col">Total Number</th>
             <th scope="col">View Questions</th>
             </tr>
