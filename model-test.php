@@ -13,8 +13,7 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
     <div id="wrapper">
 
         <div class="row">
-            <?php include_once('member-menu.php'); ?>
-            <div class="col-8">
+            <div class="col-12">
                 <h2>This is Model Test Page</h2>
             </div>
         </div>

@@ -14,8 +14,7 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
     <div id="wrapper">
 
         <div class="row">
-            <?php include_once('member-menu.php'); ?>
-            <div class="col-8">
+            <div class="col-12">
                 <form action="" method="post">
                     <table>
                         <tr>
