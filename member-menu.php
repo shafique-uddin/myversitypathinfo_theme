@@ -1,5 +1,5 @@
 
-<ul>
+<ul id="member-dashboard-menu">
     <li><a href="<?php echo site_url('dashboard'); ?>"><button>Dashboard</button></a></li>
     <li><a href="<?php echo site_url('user-model-test'); ?>"><button>Model Test</button></a></li>
     <li><a href="<?php echo site_url('results'); ?>"><button>Results</button></a></li>

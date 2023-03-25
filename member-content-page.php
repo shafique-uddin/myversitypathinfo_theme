@@ -1,8 +1,32 @@
-<h2><?php the_title(); ?></h2>
 <h2>Results of the latest model tests:</h2>
 <div class="row">
-    <div class="col-3">Subject Name</div>
-    <div class="col-3">Result</div>
-    <div class="col-3">Total Number</div>
-    <div class="col-3">View Questions</div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Subject Name</th>
+            <th scope="col">Result</th>
+            <th scope="col">Total Number</th>
+            <th scope="col">View Questions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            </tr>
+            <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            </tr>
+            <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

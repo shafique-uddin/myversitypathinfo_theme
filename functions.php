@@ -20,7 +20,8 @@ if ( ! function_exists( 'myversitypathinfo_function' ) ) :
 		register_nav_menus(
 			array(
 				'menu-one' => esc_html__( 'Primary', 'myversitypathinfo' ),
-			)
+                'member-menu' => esc_html__( 'MemberPage', 'myversitypathinfo' ),
+            ),
 		);
 
         wp_enqueue_style( 'root_theme_custom_css', get_template_directory_uri() . '/css/custom_theme.css',false, time(),'all');

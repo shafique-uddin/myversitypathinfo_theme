@@ -10,6 +10,7 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){
 }
 elseif(!empty($_COOKIE['vspo'])){
     echo $_COOKIE['vspo'];
+    exit;
     // CHECK THE COOKIE IS VALID OR NOT
     // IF COOKIE IS VALID CHECK COOKIE EXPIRED TIME AND UPDATE IT WITH NEW EXPIRED TIME
     // IF IT IS INVALID THEN REDIRECT USER TO 404 PAGE

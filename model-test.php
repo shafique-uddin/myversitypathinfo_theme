@@ -7,8 +7,7 @@ session_start();
 if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
 
 <!--MEMBER SECTION START-->
-<?php // include('member-header.php'); ?>
-<?php get_header(); ?>
+<?php get_header('member'); ?>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
