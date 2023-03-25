@@ -4,7 +4,16 @@
 */
 ?>
 
-<?php get_header(); ?>
+<?php 
+// get_header(); 
+
+if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){
+    get_header('member'); // LOGINED MEMBER HEADER
+}
+else{
+    get_header(); // FRONT END USER HEADER
+}
+?>
     <!-- জাম্বোট্রন এর কাজ শুরু -->
         <div class="row">
             <div class="col">

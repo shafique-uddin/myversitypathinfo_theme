@@ -4,7 +4,17 @@
 * Template Name: Circular Page
 */
 
-get_header(); ?>
+
+
+if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){
+    get_header('member'); // LOGINED MEMBER HEADER
+}
+else{
+    get_header(); // FRONT END USER HEADER
+}
+
+
+?>
 
 
 <?php

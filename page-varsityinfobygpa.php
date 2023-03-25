@@ -3,7 +3,18 @@
 * Template Name: all university info
  */
 
-get_header(); 
+// get_header(); 
+
+if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){
+    get_header('member'); // LOGINED MEMBER HEADER
+}
+else{
+    get_header(); // FRONT END USER HEADER
+}
+
+
+
+
 
 $query = new WP_Query( array( 
     'post_type' => 'varsityunitewithgpa',
