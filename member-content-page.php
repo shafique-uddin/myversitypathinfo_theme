@@ -1,2 +1,8 @@
 <h2><?php the_title(); ?></h2>
-<p>Tumi jodi settings page theke tomar sokol totho diye thako tobe ai dashboar page e aslei tomar joggota onujayi sokol bissobiddaloyer circle, abedoner date abong abodoner link er notification akhane paye jabe auto.</p>
+<h2>Results of the latest model tests:</h2>
+<div class="row">
+    <div class="col-3">Subject Name</div>
+    <div class="col-3">Result</div>
+    <div class="col-3">Total Number</div>
+    <div class="col-3">View Questions</div>
+</div>
