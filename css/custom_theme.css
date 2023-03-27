@@ -11,3 +11,26 @@
     width: 100%;
     background-color: #e9ecef;
 } */
+
+.row.member_question_section{
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+}
+
+input[type='submit'].member-model-test-form-submit{
+    margin: 19px;
+    border: 1px solid black;
+}
+
+.row.member_question_section .question {
+    display: block;
+    margin-bottom: 5px;
+    clear: both;
+    width: 100%;
+    height: auto;
+}
+
+.row.member_question_section .options label{
+    cursor: pointer;
+}
