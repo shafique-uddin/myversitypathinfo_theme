@@ -36,7 +36,7 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
                         Paper No: <?php echo $modelTest_dtails->paperNo; ?> <br>
                         Topic/Chapter: <?php echo $modelTest_dtails->topicOrChapter; ?>
                     </p>
-                    <a href="<?php echo add_query_arg('modelTstNo', $modelTest_dtails->subject_id, site_url('member-single-model-test-page')); ?>" class="btn btn-success">START</a>
+                    <a href="<?php echo add_query_arg(array('model_test_title'=> $modelTest_dtails->subjectName, 'modelTstNo' => $modelTest_dtails->subject_id), site_url('member-single-model-test-page')); ?>" class="btn btn-success">START</a>
                 </div>
                 </div>
             </div>

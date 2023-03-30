@@ -25,7 +25,6 @@ if ( ! function_exists( 'myversitypathinfo_function' ) ) :
 		);
 
         wp_enqueue_style( 'root_theme_custom_css', get_template_directory_uri() . '/css/custom_theme.css',false, time(),'all');
-	
 	}
 endif;
 add_action( 'after_setup_theme', 'myversitypathinfo_function' );
@@ -416,3 +415,32 @@ function some_registration_field_is_empty_callable_func(){ ?>
  }
 
  
+
+########################### USER MODEL TEST FORM SUBMISSION ###################################################
+if(isset($_POST['user_model_test_submit'])){
+    // FIND OUT USER ID
+    $userSession_is = $_SESSION['usid'];
+    $userID = apply_filters('user_session_id_finder', $userSession_is);
+
+
+    echo "<pre>";
+    print_r($userID);
+    echo "</pre>"; exit;
+
+
+    $total_Qestion = $_POST['total_number_of_question_is'];
+
+    $user_model_test_answer_sheet = array();
+    for ($i=1; $i <= $total_Qestion; $i++) { 
+        if(!empty($_POST['answer_for_question_'.$i]) && !empty($_POST['id_of_question_no_'.$i.'_is'])){
+            $answer_from_user = $_POST['answer_for_question_'.$i];
+            $this_question_id_is = $_POST['id_of_question_no_'.$i.'_is'];
+            $user_model_test_answer_sheet += ["$this_question_id_is" => "$answer_from_user"];
+        }
+    }
+
+
+    
+    $result = apply_filters('custom_question_answer_sheet', $user_model_test_answer_sheet);
+    
+}
