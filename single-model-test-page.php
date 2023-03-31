@@ -63,6 +63,8 @@ foreach ($single_modlTst_result as $key => $value) {
 ?>
     <div class="row">
         <input type="hidden" name="total_number_of_question_is" value="<?php echo $total_number_of_question; ?>">
+        <input type="hidden" name="model_test_ID_is" value="<?php echo $value->subject_id; ?>">
+        <input type="hidden" name="model_test_title" value="<?php echo $_GET['model_test_title']; ?>">
     </div>
 
     <div class="row">

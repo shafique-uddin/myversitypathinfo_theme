@@ -423,14 +423,13 @@ if(isset($_POST['user_model_test_submit'])){
     $userID = apply_filters('user_session_id_finder', $userSession_is);
 
 
-    echo "<pre>";
-    print_r($userID);
-    echo "</pre>"; exit;
-
-
     $total_Qestion = $_POST['total_number_of_question_is'];
+    $model_test_id = $_POST['model_test_ID_is'];
+    $model_test_title = $_POST['model_test_title'];
 
+    // MODEL TEST DATA (USER ID, QUESTION ID, QUESTION ANSWER)
     $user_model_test_answer_sheet = array();
+    // $user_model_test_answer_sheet += ["userID" => "$userID"];
     for ($i=1; $i <= $total_Qestion; $i++) { 
         if(!empty($_POST['answer_for_question_'.$i]) && !empty($_POST['id_of_question_no_'.$i.'_is'])){
             $answer_from_user = $_POST['answer_for_question_'.$i];
@@ -439,8 +438,18 @@ if(isset($_POST['user_model_test_submit'])){
         }
     }
 
+    $user_total_obtained_number = apply_filters('user_botained_marks', $user_model_test_answer_sheet);  // USER TOTAL OBTAINED NUMBER HOOK [PLUGIN]
 
+    // MODEL TEST MARKS DISTRIBUTION (USER ID, MODEL TEST NAME, MODEL TEST ID, OBTAINED MARKS, TOTAL MARKS)
+    $user_model_test_result = array();
+    $user_model_test_result += ["userID" => "$userID"];
+    $user_model_test_result += ["modelTestName" => "$model_test_title"];
+    $user_model_test_result += ["modelTestID" => "$model_test_id"];
+    $user_model_test_result += ["obtainedMarks" => "$user_total_obtained_number"];
+    $user_model_test_result += ["TotalMarks" => "$total_Qestion"];
     
-    $result = apply_filters('custom_question_answer_sheet', $user_model_test_answer_sheet);
+    $result = apply_filters('custom_question_answer_sheet', $user_model_test_answer_sheet, $user_model_test_result);
+
+    echo 'you get '.$result;
     
 }
