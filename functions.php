@@ -450,6 +450,12 @@ if(isset($_POST['user_model_test_submit'])){
     
     $result = apply_filters('custom_question_answer_sheet', $user_model_test_answer_sheet, $user_model_test_result);
 
-    echo 'you get '.$result;
-    
+    // echo 'you get '.$result;
+    // return $result;
+
+    $url = add_query_arg("result", $result, site_url('results'));
+
+    // $url = site_url('results');
+    wp_redirect( $url );
+    exit;
 }
