@@ -7,7 +7,7 @@
     
             <div class="row">
                     <?php // include_once('member-menu.php'); ?>
-                <div class="col-12">
+                <div class="col-12 display-full-height">
                     <?php include_once('member-content-page.php'); ?>
                 </div>
             </div>

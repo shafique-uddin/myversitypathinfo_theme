@@ -453,7 +453,13 @@ if(isset($_POST['user_model_test_submit'])){
     // echo 'you get '.$result;
     // return $result;
 
-    $url = add_query_arg("result", $result, site_url('results'));
+    $url = add_query_arg(
+        array(
+            "model_test_name" => $model_test_title,
+            "result" => $result
+        ),
+        site_url('results')
+    );
 
     // $url = site_url('results');
     wp_redirect( $url );

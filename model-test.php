@@ -10,7 +10,7 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
 <?php get_header('member'); ?>
 
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" class="display-full-height">
 
         <div class="row">
             <div class="col-12">

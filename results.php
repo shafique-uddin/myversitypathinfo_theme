@@ -12,7 +12,7 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
 
 
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" class="display-full-height">
 
         <div class="row">
             <div class="col-12">
@@ -20,7 +20,7 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
 
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <h4 class="alert-heading">Well done!</h4>
-                        <p>Model Test Name: </p>
+                        <p>Model Test Name: <?php echo $_GET['model_test_name']; ?></p>
                         <p>Your Score is: <?php echo $_GET['result']; ?></p>
                         <hr>
                         <p class="mb-0">Stay with us.</p>
@@ -34,41 +34,65 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
                 ?>
             </div>
         </div>
+    
 
+        <?php     $userID = $_SESSION['usuid']; 
+    $modelTestInfo = apply_filters('Ruinfo_get_model_test_info_for_per_user', $userID);
+    if(count($modelTestInfo) < 1){
+    ?>
+
+        <div class="row">
+            <div class="col text-center">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <h4 class="alert-heading">Oh Sorry!</h4>
+                    <p>Mode Test Result is not published</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <?php 
+        } else {
+        
+        ?>
 
         <table class="table table-hover">
             <thead>
                 <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Model Test Name</th>
-                <th scope="col">Your Result</th>
-                <th scope="col">Total Number</th>
+                <th scope="col" class="text-center">Your Result</th>
+                <th scope="col" class = "text-center">Total Number</th>
                 <th scope="col">Max Number</th>
                 <th scope="col">Time Taken</th>
+                <th scope="col">View</th>
                 </tr>
             </thead>
             <tbody>
+
+
+
+            <?php 
+foreach ($modelTestInfo as $key => $value) {?>
+            
                 <tr>
-                <th>12/12/2023</th>
-                <td>Bangla</td>
-                <td>8</td>
-                <td>10</td>
-                <td>09</td>
-                <td>5 Minutes</td>
+                <th><?= $value->dateIs; ?></th>
+                <td><?= $value->modelTestName; ?></td>
+                <td class="text-center"><?= $value->obtainedMarks; ?></td>
+                <td class="text-center"><?= $value->TotalMarks; ?></td>
+                <td><?= $value->dateIs; ?></td>
+                <td><?= $value->dateIs; ?></td>
+                <td><a href="<?php ?>">Details</a></td>
                 </tr>
 
-                <tr>
-                <th>12/12/2023</th>
-                <td>Bangla</td>
-                <td>8</td>
-                <td>10</td>
-                <td>09</td>
-                <td>5 Minutes</td>
-                </tr>
+ <?php } ?>
+
             </tbody>
         </table>
 
-
+<?php } ?>
 
 
     </div>

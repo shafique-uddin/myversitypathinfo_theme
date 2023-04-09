@@ -27,9 +27,9 @@ $query = new WP_Query( array(
 
 
 
+<div class="content display-full-height">
 
-
-<!-- জাম্বোট্রন এর কাজ শুরু -->
+    <!-- জাম্বোট্রন এর কাজ শুরু -->
         <div class="row">
             <div class="col">
                 <div class="jumbotron jumbotron-fluid">
@@ -45,14 +45,13 @@ $query = new WP_Query( array(
 
 
     <div class="row">
-
-<?php 
-    while ($query->have_posts()) : $query->the_post(); ?>
-        <div class="col-2">
-            <a class="btn btn-primary mb-2" href="<?php echo the_permalink(); ?>" role="button"><?php echo get_the_title(); ?></a>
-        </div>
-<?php endwhile; ?>
+    <?php 
+        while ($query->have_posts()) : $query->the_post(); ?>
+            <div class="col-2">
+                <a class="btn btn-primary mb-2" href="<?php echo the_permalink(); ?>" role="button"><?php echo get_the_title(); ?></a>
+            </div>
+    <?php endwhile; ?>
     </div>
 
-
+</div>
 <?php get_footer(); ?>

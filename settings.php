@@ -11,9 +11,14 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
 <?php get_header('member'); ?>
 
     <!-- Page Wrapper -->
-    <div id="wrapper">
-
+    <div id="wrapper"  class="display-full-height">
         <div class="row">
+            <div class="col">
+                <span class="align-middle">This page is under construction.</span>
+            </div>
+        </div>
+
+        <!-- <div class="row">
             <div class="col-12">
                 <form action="" method="post">
                     <table>
@@ -39,7 +44,7 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
                     </table>
                 </form>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- End of Page Wrapper -->
 <?php // include_once('member-footer.php'); ?>
