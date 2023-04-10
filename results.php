@@ -82,8 +82,8 @@ foreach ($modelTestInfo as $key => $value) {?>
                 <td><?= $value->modelTestName; ?></td>
                 <td class="text-center"><?= $value->obtainedMarks; ?></td>
                 <td class="text-center"><?= $value->TotalMarks; ?></td>
-                <td><?= $value->dateIs; ?></td>
-                <td><?= $value->dateIs; ?></td>
+                <td><?= 'Under Construction'; ?></td>
+                <td><?= 'Under Construction'; ?></td>
                 <td><a href="<?php ?>">Details</a></td>
                 </tr>
 

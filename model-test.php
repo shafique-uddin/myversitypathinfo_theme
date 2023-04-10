@@ -12,18 +12,13 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
     <!-- Page Wrapper -->
     <div id="wrapper" class="display-full-height">
 
-        <div class="row">
-            <div class="col-12">
-                <h2>This is Model Test Page</h2>
-            </div>
-        </div>
-
     <!-- MODEL TEST SECTION IS START -->
-        <div class="row">
+        <div class="row mt-3">
 
 
         <?php
         $modelTest_dt = apply_filters('all_model_test_data_is_here', 'No Model Test has been created yet.');
+        if(count($modelTest_dt)>0){
 
         foreach ($modelTest_dt as $key => $modelTest_dtails) {
             ?>
@@ -40,7 +35,24 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
                 </div>
                 </div>
             </div>
-        <?php }        ?>
+        <?php } 
+        } else{
+            $query = new WP_Query( array( 'page_id' => '176' ) );   // PLEASE CHECK YOUR UNDER CONSTRUCTION PAGE URL, AND COLLECT PAGE ID FROM URL THEN PUT IT IN HERE.
+            while($query->have_posts()): $query->the_post(); ?>
+            
+                <div class="container">
+                <div class="row display-full-height">
+                    <div class="col text-center">
+                        <h3><?php echo the_content(); ?></h3>
+                    </div>
+                </div>
+                </div>
+            
+<?php
+            endwhile;
+
+        }
+        ?>
             
         </div>
     <!-- MODEL TEST SECTION IS START -->

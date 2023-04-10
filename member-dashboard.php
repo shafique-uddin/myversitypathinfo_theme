@@ -5,10 +5,11 @@
         <!-- Page Wrapper -->
         <div id="wrapper">
     
-            <div class="row">
-                    <?php // include_once('member-menu.php'); ?>
-                <div class="col-12 display-full-height">
-                    <?php include_once('member-content-page.php'); ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 display-full-height">
+                        <?php include_once('member-content-page.php'); ?>
+                    </div>
                 </div>
             </div>
 
