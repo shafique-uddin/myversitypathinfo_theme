@@ -41,11 +41,11 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
             while($query->have_posts()): $query->the_post(); ?>
             
                 <div class="container">
-                <div class="row display-full-height">
-                    <div class="col text-center">
-                        <h3><?php echo the_content(); ?></h3>
+                    <div class="row display-full-height">
+                        <div class="col text-center">
+                            <h3><?php echo the_content(); ?></h3>
+                        </div>
                     </div>
-                </div>
                 </div>
             
 <?php

@@ -39,21 +39,31 @@ if((isset($_SESSION['usid']) && !empty($_SESSION['usuid']))){ ?>
         <?php     $userID = $_SESSION['usuid']; 
     $modelTestInfo = apply_filters('Ruinfo_get_model_test_info_for_per_user', $userID);
     if(count($modelTestInfo) < 1){
+
+        $query = new WP_Query( array( 'page_id' => '149' ) );   // PLEASE CHECK YOUR UNDER CONSTRUCTION PAGE URL, AND COLLECT PAGE ID FROM URL THEN PUT IT IN HERE.
+            while($query->have_posts()): $query->the_post();
     ?>
 
-        <div class="row">
-            <div class="col text-center">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <h4 class="alert-heading">Oh Sorry!</h4>
-                    <p>Mode Test Result is not published</p>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        </div>
 
-        <?php 
+
+
+
+
+            
+                <div class="container mt-3">
+                    <div class="row display-full-height">
+                        <div class="col text-center">
+                            <h3><?php echo the_content(); ?></h3>
+                        </div>
+                    </div>
+                </div>
+            
+<?php
+            endwhile;
+
+
+
+
         } else {
         
         ?>
