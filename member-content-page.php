@@ -12,16 +12,18 @@
             </tr>
         </thead>
         <tbody>
-
+<?php 
+$data = apply_filters('Ruinfo_get_model_test_routine_info', 'COLLECT ALL ROUTINE DATA');
+foreach ($data as $routineTitle => $routineValue) { ?>    
             <tr>
-                <td>Bangla</td>
-                <td>1st</td>
-                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus saepe repellendus deserunt optio. Iusto earum velit hic exercitationem necessitatibus quae ratione quisquam, laborum quod porro? Suscipit ad inventore dolores perferendis.</td>
-                <td>10</td>
-                <td>10-12-2023</td>
-                <td>7 PM</td>
+                <td><?php echo $routineValue->subjectName; ?></td>
+                <td><?php echo $routineValue->subjectPaper; ?></td>
+                <td><?php echo $routineValue->topic_chapterName; ?></td>
+                <td><?php echo $routineValue->TotalMarks; ?></td>
+                <td><?php echo $routineValue->examDate; ?></td>
+                <td><?php echo $routineValue->examTime; ?></td>
             </tr>
-            
+<?php } ?>            
 
         </tbody>
     </table>
