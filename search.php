@@ -37,7 +37,7 @@ else {
     
     global $wpdb;
     $table_name = $wpdb->prefix . "admission_info_db";
-    $result = $wpdb->get_results("SELECT * FROM $table_name WHERE (sscGPA <= $ssc_gpa AND hscGPA <= $hsc_gpa) AND (sscGROUP LIKE '%$sscgrp%' AND hscGROUP LIKE '%$hscgrp%')");
+    $result = $wpdb->get_results("SELECT * FROM $table_name WHERE (sscGPA <= $ssc_gpa AND hscGPA <= $hsc_gpa) AND (sscGROUP LIKE '%$sscgrp%' AND hscGROUP LIKE '%$hscgrp%') AND totalGPA <= $totalGPA");
        ?>
     
     
