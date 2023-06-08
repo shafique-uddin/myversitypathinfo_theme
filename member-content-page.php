@@ -1,6 +1,6 @@
 <h2>Upcoming Model Test Routine</h2>
 <?php 
-$data = apply_filters('Ruinfo_get_model_test_routine_info', 'COLLECT ALL ROUTINE DATA');
+$data = apply_filters('Ruinfo_get_active_model_test_routine_info', 'COLLECT ALL ROUTINE DATA');
 if(count($data) == 0){
     _e('The Model Test routine will be published soon.');
 }else{?>
